@@ -9,7 +9,7 @@
 import UIKit
 import MediaPlayer
 
-class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, RBCollectionViewInfoFolderLayoutDelegate {
 
     @IBOutlet var view_playlist: UIView!
     @IBOutlet var view_artist: UIView!
@@ -37,11 +37,23 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         cview = ArtistCollectionView
         
+        let lay: RBCollectionViewInfoFolderLayout = ArtistCollectionView.collectionViewLayout as! RBCollectionViewInfoFolderLayout
+        lay.cellSize = CGSizeMake(80, 80)
+        lay.interItemSpacingY = 10
+        lay.interItemSpacingX = 0
+        
         let nib = UINib(nibName: "CollectionViewCell", bundle: nil)
         
-        ArtistCollectionView.collectionViewLayout = layout
+        cview.registerClass(UICollectionReusableView.self, forSupplementaryViewOfKind: RBCollectionViewInfoFolderHeaderKind, withReuseIdentifier: "header")
+        cview.registerClass(UICollectionReusableView.self, forSupplementaryViewOfKind: RBCollectionViewInfoFolderFooterKind, withReuseIdentifier: "footer")
+        cview.registerClass(collectionViewFolder.self, forSupplementaryViewOfKind: RBCollectionViewInfoFolderFolderKind, withReuseIdentifier: "folder")
+        cview.registerClass(RBCollectionViewInfoFolderDimple.self, forSupplementaryViewOfKind: RBCollectionViewInfoFolderDimpleKind, withReuseIdentifier: "dimple")
+        
+        
+        ArtistCollectionView.collectionViewLayout = lay
         ArtistCollectionView.registerNib(nib, forCellWithReuseIdentifier: "item")
         ArtistCollectionView.dataSource = self
+        ArtistCollectionView.delegate = self
         
         PlaylistCollectionView.collectionViewLayout = layout
         PlaylistCollectionView.registerNib(nib, forCellWithReuseIdentifier: "item")
@@ -67,12 +79,43 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             return musicLib.getAlbumsCount()
         }
         else if(view_artist.hidden == false){
-            return musicLib.getArtistsCount()
+            return 20
+            //return musicLib.getArtistsCount()
         }
         else if(view_playlist.hidden == false){
             return musicLib.getPlaylistsCount()
         }
         else {return 0}
+    }
+    
+    func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        var reuseView: UICollectionReusableView!
+        
+        if(kind == RBCollectionViewInfoFolderHeaderKind){
+            reuseView = cview.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "header", forIndexPath: indexPath)
+        }
+        
+        if(kind == RBCollectionViewInfoFolderFooterKind){
+            reuseView = cview.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "footer", forIndexPath: indexPath)
+        }
+        
+        if(kind == RBCollectionViewInfoFolderFolderKind){
+            let colViewFolder: collectionViewFolder = cview.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "folder", forIndexPath: indexPath) as! collectionViewFolder
+            
+            colViewFolder.backgroundColor = UIColor.redColor()
+            
+            reuseView = colViewFolder
+        }
+        
+        if(kind == RBCollectionViewInfoFolderDimpleKind){
+            let dimple: RBCollectionViewInfoFolderDimple = cview.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "dimple", forIndexPath: indexPath) as! RBCollectionViewInfoFolderDimple
+            
+            dimple.color = UIColor.blueColor()
+            
+            reuseView = dimple
+        }
+        
+        return reuseView
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -134,6 +177,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return cell
     }
     
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let lay: RBCollectionViewInfoFolderLayout = cview.collectionViewLayout as! RBCollectionViewInfoFolderLayout
+        lay.toggleFolderViewForIndexPath(indexPath)
+    }
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         if(view_album.hidden == false){
@@ -167,5 +215,16 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
     }
 
+    func collectionView(collectionView: UICollectionView!, layout collectionViewLayout: RBCollectionViewInfoFolderLayout!, heightForFolderAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
+        return 200
+    }
+    
+    func collectionView(collectionView: UICollectionView!, layout collectionViewLayout: RBCollectionViewInfoFolderLayout!, sizeForFooterInSection section: Int) -> CGSize {
+        return CGSizeMake(0, 0)
+    }
+    
+    func collectionView(collectionView: UICollectionView!, layout collectionViewLayout: RBCollectionViewInfoFolderLayout!, sizeForHeaderInSection section: Int) -> CGSize {
+        return CGSizeMake(0, 0)
+    }
 }
 

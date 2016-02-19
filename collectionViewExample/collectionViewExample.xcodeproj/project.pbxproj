@@ -19,6 +19,7 @@
 		F52AFEFC1C6F54C5002CFEDB /* CustomCollectionViewFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52AFEF91C6F54C5002CFEDB /* CustomCollectionViewFlow.swift */; };
 		F52AFEFE1C6F56D3002CFEDB /* musicLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52AFEFD1C6F56D3002CFEDB /* musicLibrary.swift */; };
 		F52AFF011C6F5C09002CFEDB /* no_Artwork.png in Resources */ = {isa = PBXBuildFile; fileRef = F52AFF001C6F5C09002CFEDB /* no_Artwork.png */; };
+		F5F3E83C1C74B8D1004BACB1 /* collectionViewFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3E83B1C74B8D1004BACB1 /* collectionViewFolder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		F52AFEF91C6F54C5002CFEDB /* CustomCollectionViewFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewFlow.swift; sourceTree = "<group>"; };
 		F52AFEFD1C6F56D3002CFEDB /* musicLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = musicLibrary.swift; sourceTree = "<group>"; };
 		F52AFF001C6F5C09002CFEDB /* no_Artwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = no_Artwork.png; sourceTree = "<group>"; };
+		F5F3E83B1C74B8D1004BACB1 /* collectionViewFolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = collectionViewFolder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				F52AFEDA1C6F53E3002CFEDB /* LaunchScreen.storyboard */,
 				F52AFEDD1C6F53E3002CFEDB /* Info.plist */,
 				F52AFEF61C6F543B002CFEDB /* bridge_header.h */,
+				F5F3E83B1C74B8D1004BACB1 /* collectionViewFolder.swift */,
 			);
 			path = collectionViewExample;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5F3E83C1C74B8D1004BACB1 /* collectionViewFolder.swift in Sources */,
 				F52AFEFC1C6F54C5002CFEDB /* CustomCollectionViewFlow.swift in Sources */,
 				F52AFEFE1C6F56D3002CFEDB /* musicLibrary.swift in Sources */,
 				F52AFED41C6F53E3002CFEDB /* ViewController.swift in Sources */,
@@ -449,6 +453,7 @@
 				F52AFEED1C6F53E3002CFEDB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F52AFEEE1C6F53E3002CFEDB /* Build configuration list for PBXNativeTarget "collectionViewExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -457,6 +462,7 @@
 				F52AFEF01C6F53E3002CFEDB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

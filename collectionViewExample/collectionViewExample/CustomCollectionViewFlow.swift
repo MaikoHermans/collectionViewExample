@@ -26,7 +26,7 @@ class CustomCollectionViewFlow: UICollectionViewFlowLayout{
         get {
             let numberOfColumns: CGFloat = 3
             
-            let itemWidth = (CGRectGetWidth(self.collectionView!.frame) - (numberOfColumns - 1)) / numberOfColumns
+            let itemWidth = (CGRectGetWidth(self.collectionView!.frame)) / numberOfColumns
             return CGSizeMake(itemWidth, itemWidth)
         }
     }

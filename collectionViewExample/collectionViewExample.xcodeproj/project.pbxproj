@@ -20,6 +20,7 @@
 		F52AFEFE1C6F56D3002CFEDB /* musicLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = F52AFEFD1C6F56D3002CFEDB /* musicLibrary.swift */; };
 		F52AFF011C6F5C09002CFEDB /* no_Artwork.png in Resources */ = {isa = PBXBuildFile; fileRef = F52AFF001C6F5C09002CFEDB /* no_Artwork.png */; };
 		F5F3E83C1C74B8D1004BACB1 /* collectionViewFolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3E83B1C74B8D1004BACB1 /* collectionViewFolder.swift */; };
+		F5F3E83E1C7A7F61004BACB1 /* RBCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F3E83D1C7A7F61004BACB1 /* RBCollectionLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		F52AFEFD1C6F56D3002CFEDB /* musicLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = musicLibrary.swift; sourceTree = "<group>"; };
 		F52AFF001C6F5C09002CFEDB /* no_Artwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = no_Artwork.png; sourceTree = "<group>"; };
 		F5F3E83B1C74B8D1004BACB1 /* collectionViewFolder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = collectionViewFolder.swift; sourceTree = "<group>"; };
+		F5F3E83D1C7A7F61004BACB1 /* RBCollectionLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RBCollectionLayout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				F52AFED11C6F53E3002CFEDB /* AppDelegate.swift */,
 				F52AFEF71C6F54C5002CFEDB /* CollectionViewCell.swift */,
 				F52AFEF81C6F54C5002CFEDB /* CollectionViewCell.xib */,
+				F5F3E83D1C7A7F61004BACB1 /* RBCollectionLayout.swift */,
 				F52AFEF91C6F54C5002CFEDB /* CustomCollectionViewFlow.swift */,
 				F52AFED31C6F53E3002CFEDB /* ViewController.swift */,
 				F52AFEFD1C6F56D3002CFEDB /* musicLibrary.swift */,
@@ -250,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5F3E83C1C74B8D1004BACB1 /* collectionViewFolder.swift in Sources */,
+				F5F3E83E1C7A7F61004BACB1 /* RBCollectionLayout.swift in Sources */,
 				F52AFEFC1C6F54C5002CFEDB /* CustomCollectionViewFlow.swift in Sources */,
 				F52AFEFE1C6F56D3002CFEDB /* musicLibrary.swift in Sources */,
 				F52AFED41C6F53E3002CFEDB /* ViewController.swift in Sources */,

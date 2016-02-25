@@ -21,6 +21,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     var musicLib = musicLibrary()
     
     var layout: CustomCollectionViewFlow!
+    var lay: RBCollectionViewInfoFolderLayout!
     var cview: UICollectionView!
     var image: UIImage!
     
@@ -37,10 +38,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         cview = ArtistCollectionView
         
-        let lay: RBCollectionViewInfoFolderLayout = ArtistCollectionView.collectionViewLayout as! RBCollectionViewInfoFolderLayout
-        lay.cellSize = CGSizeMake(80, 80)
-        lay.interItemSpacingY = 10
-        lay.interItemSpacingX = 0
+        lay = RBCollectionLayout(view: self.view)
         
         let nib = UINib(nibName: "CollectionViewCell", bundle: nil)
         
@@ -122,7 +120,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let cell: CollectionViewCell = cview.dequeueReusableCellWithReuseIdentifier("item", forIndexPath: indexPath) as! CollectionViewCell
         if(view_artist.hidden == false)
         {
-            let objects = musicLib.getArtists().objectAtIndex(indexPath.item) as! MPMediaItemCollection
+            cell.backgroundColor = UIColor.purpleColor()
+            /*let objects = musicLib.getArtists().objectAtIndex(indexPath.item) as! MPMediaItemCollection
             let repObjects = objects.representativeItem
             
             cell.lbl_Name.text = repObjects!.valueForProperty(MPMediaItemPropertyAlbumArtist) as? String
@@ -136,7 +135,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             }
             else{
                 cell.img_artwork.image = UIImage(named: "no_Artwork.png")
-            }
+            }*/
         }
         else if(view_album.hidden == false){
             let objects = musicLib.getAlbums().objectAtIndex(indexPath.item) as! MPMediaItemCollection
@@ -195,13 +194,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
         
         if(view_artist.hidden == false){
-            guard let ArtistFlowLayout = ArtistCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else {
+            guard let ArtistFlowLayout = ArtistCollectionView.collectionViewLayout as? RBCollectionViewInfoFolderLayout else {
                 return
             }
-            
-            layout = CustomCollectionViewFlow()
-            ArtistCollectionView.collectionViewLayout = layout
-            ArtistFlowLayout.invalidateLayout()
+            lay = RBCollectionLayout(view: self.view)
+            ArtistCollectionView.collectionViewLayout = lay
+            //ArtistCollectionView.collectionViewLayout.invalidateLayout()
+            //ArtistFlowLayout.invalidateLayout()
         }
         
         if(view_playlist.hidden == false){

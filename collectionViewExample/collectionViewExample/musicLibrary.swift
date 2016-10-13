@@ -31,7 +31,7 @@ class musicLibrary{
     
     func loadSongs(){
         songsQuery = MPMediaQuery.songsQuery()
-        songs = songsQuery.items!
+        songs = songsQuery.items
     }
     
     func getSongs() -> NSArray
